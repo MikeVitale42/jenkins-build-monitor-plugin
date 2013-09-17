@@ -20,6 +20,10 @@ angular.
             var updating;
             proxy.buildMonitor.fetchJobViews().then(function(response) {
                 $scope.jobs = response.data.jobs;
+                $scope.jobs.forEach(function(job) {
+                    job.name = job.name.replace(/_build/ig, "");
+                    job.name = job.name.replace(/_test_/ig, ": ");
+                })
                 updating = $timeout(update, 5000);
             }, function(error) {
                 $timeout.cancel(updating);
