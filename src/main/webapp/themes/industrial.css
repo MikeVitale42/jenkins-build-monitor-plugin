@@ -96,7 +96,7 @@ h2 {
 
 .build-monitor .successful { background-color:darkgreen; }
 .build-monitor .failing { background-color:darkred; }
-.build-monitor .running { }
+.build-monitor .running { background-color:darkblue; }
 
 .build-monitor #job-views a.build-name {
     font-weight: bold;
