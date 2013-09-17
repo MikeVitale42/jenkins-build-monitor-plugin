@@ -243,6 +243,17 @@ h2 {
     border-radius: 0;
 }
 
+.build-monitor ul#job-views .meta .changes {
+    -webkit-flex: 1 ;
+    flex: 1;
+    width:75%;
+    overflow: hidden;
+}
+.build-monitor ul#job-views .meta .changes li {
+    border-radius: 0;
+    font-size: 1.8em;
+}
+
 /*
  *   Job meta-data
  */
