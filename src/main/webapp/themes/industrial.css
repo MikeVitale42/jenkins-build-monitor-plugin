@@ -222,8 +222,8 @@ h2 {
 }
 
 .build-monitor ul#job-views .meta h2 {
-    -webkit-flex: 4;
-    flex: 4;
+    -webkit-flex: 0.5;
+    flex: 0.5;
 
     display: -webkit-flex;
     display: flex;
@@ -251,7 +251,7 @@ h2 {
 }
 .build-monitor ul#job-views .meta .changes li {
     border-radius: 0;
-    font-size: 1.8em;
+    font-size: 1.2em;
 }
 
 /*

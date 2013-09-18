@@ -4,8 +4,6 @@ import hudson.model.*;
 import hudson.scm.ChangeLogSet;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static hudson.model.Result.SUCCESS;
@@ -114,11 +112,8 @@ public class JobView {
         if (run instanceof AbstractBuild<?, ?>) {
             AbstractBuild<?, ?> build = (AbstractBuild<?, ?>) run;
 
-            DateFormat formatter = new SimpleDateFormat("yyyy-dd-MM HH:mm");
-
             for (ChangeLogSet.Entry e : build.getChangeSet()) {
-                Date change_date = new Date(e.getTimestamp());
-                changes.add(formatter.format(change_date) + " " + e.getCommitId() + ": " + e.getAuthor() + " - " + e.getMsg());
+                changes.add(e.getCommitId() + ": " + e.getAuthor() + " - " + e.getMsg());
             }
         }
 
