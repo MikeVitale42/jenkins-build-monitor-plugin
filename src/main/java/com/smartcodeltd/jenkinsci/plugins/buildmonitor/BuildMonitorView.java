@@ -63,7 +63,7 @@ public class BuildMonitorView extends ListView {
 
         @Override
         public String getDisplayName() {
-            return "Build Monitor View";
+            return "Enhanced Build Monitor View";
         }
 
         public FormValidation doCheckIncludeRegex(@QueryParameter String value) {
