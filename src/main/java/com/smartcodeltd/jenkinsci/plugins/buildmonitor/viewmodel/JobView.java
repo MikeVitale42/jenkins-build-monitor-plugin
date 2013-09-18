@@ -43,6 +43,12 @@ public class JobView {
             status += " running";
         }
 
+        for (JobView downstream : downstreamJobs()) {
+            if (downstream.status().equals("failing")) {
+                status = "failing";
+            }
+        }
+
         return status;
     }
 
@@ -118,7 +124,22 @@ public class JobView {
         }
 
         return changes;
+    }
 
+    @JsonProperty
+    public List<JobView> downstreamJobs() {
+        List<JobView> jobs = new ArrayList<JobView>();
+
+        Run<?, ?> run = job.getLastBuild();
+        if (run instanceof AbstractBuild<?, ?>) {
+            AbstractBuild<?, ?> build = (AbstractBuild<?, ?>) run;
+            List<AbstractProject> downstreamProjects = build.getProject().getDownstreamProjects();
+            for (AbstractProject ap : downstreamProjects) {
+                jobs.add(JobView.of(ap));
+            }
+        }
+
+        return jobs;
     }
 
     public String toString() {

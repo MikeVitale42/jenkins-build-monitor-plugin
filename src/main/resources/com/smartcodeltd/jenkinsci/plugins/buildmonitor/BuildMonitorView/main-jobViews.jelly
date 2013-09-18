@@ -17,12 +17,18 @@
                     {{name}}
                 </li>
             </ul>
-
             <ul data-ng-show="job.changes.size() > 0" class="changes">
                 <li data-ng-repeat='changes in job.changes'>
                     {{changes}}
                 </li>
             </ul>
+
+            <div class="downstreams">
+                <div data-ng-repeat='downstreamJob in job.downstreamJobs' class="downstream {{downstreamJob.status}}">
+                   {{downstreamJob.name}}
+                </div>
+            </div>
+
             <a data-ng-show="!!job.buildName" class="build-name"
                title="Details of {{job.name}}, build {{job.buildName}}"
                href="{{job.buildUrl}}">{{job.buildName}}</a>

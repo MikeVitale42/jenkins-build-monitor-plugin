@@ -96,7 +96,7 @@ h2 {
 
 .build-monitor .successful { background-color:darkgreen; }
 .build-monitor .failing { background-color:darkred; }
-.build-monitor .running { background-color:darkblue; }
+.build-monitor .running { }
 
 .build-monitor #job-views a.build-name {
     font-weight: bold;
@@ -243,6 +243,43 @@ h2 {
     border-radius: 0;
 }
 
+.build-monitor .downstreams {
+    width: 75%;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+
+.build-monitor .downstream {
+    -webkit-flex: 0.5 ;
+    flex: 0.5;
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    justify-content: space-around;
+    padding: 30px;
+    margin: 5px;
+    border-radius:10px;
+    font-size: 2em;
+}
+
+.build-monitor .downstream.successful {
+    background-color: green;
+}
+
+.build-monitor .downstream.failing {
+    background-color: firebrick;
+}
+
+.build-monitor .downstream.running {
+    background-color: darkblue;
+    -webkit-animation: forSuccessful 2.25s 2 alternate;
+
+}
+
+
 .build-monitor ul#job-views .meta .changes {
     -webkit-flex: 1 ;
     flex: 1;
@@ -288,16 +325,16 @@ h2 {
 
 .build-monitor ul#job-views .successful > .progress {
     -webkit-animation: forSuccessful 2.25s 2 alternate;
-    background-color: green;
+    background-color: darkblue;
 }
 
 .build-monitor ul#job-views .failing > .progress {
     -webkit-animation: forFailing 2.25s 2 alternate;
-    background-color: firebrick;
+    background-color: darkblue;
 }
 
-@-webkit-keyframes forSuccessful { 0% {background-color: green;} 100% {background-color: limegreen;} }
-@-webkit-keyframes forFailing { 0% {background-color: firebrick;} 100% {background-color: red;} }
+@-webkit-keyframes forSuccessful { 0% {background-color: darkblue;} 100% {background-color: blue;} }
+@-webkit-keyframes forFailing { 0% {background-color: darkblue;} 100% {background-color: blue;} }
 
 /*
  *   Modal
